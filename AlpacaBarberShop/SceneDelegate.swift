@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  AlpacaBarberShop
 //
-//  Created by Vlad Zagorodnyuk on 6/22/20.
+//  Created by Elena Rybina on 6/22/20.
 //  Copyright © 2020 Elena Rybina. All rights reserved.
 //
 
