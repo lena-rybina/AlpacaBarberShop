@@ -27,28 +27,28 @@ struct ContentView: View {
             
         }
     }
-  
+    
     var body: some View {
-        ZStack {
+        GeometryReader { geo in
+            ZStack {
                 Color.white
                 VStack(alignment: .center) {
-                    StrokeText(text: "\(uiState.topText)", width: 1, color: Color.pink)
+                    StrokeText(text: "\(self.uiState.topText)", width: 1, color: Color.pink)
                         .foregroundColor(Color.white)
                         .multilineTextAlignment(.center)
                         .font(.largeTitle)
                         .fixedSize(horizontal: false, vertical: true)
                     
-                    Image("\(uiState.imageName)")
+                    Image("\(self.uiState.imageName)")
                         .resizable()
-                        .scaledToFit()
-                        .frame(width: 250)
+                        .frame(width: geo.size.width / 2, height: geo.size.height / 2)
                         .cornerRadius(30)
                         .overlay(RoundedRectangle(cornerRadius: 30) .stroke(Color.white, lineWidth: 5))
                         .shadow(radius: 10)
                     
                     
                     Button(action: {print("Hey Listen!")}) {
-                        Text("\(uiState.buttonText)")
+                        Text("\(self.uiState.buttonText)")
                             .font(.largeTitle)
                             .fontWeight(.medium)
                             .multilineTextAlignment(.center)
@@ -67,6 +67,7 @@ struct ContentView: View {
             }
         }
     }
+}
 
 
 
