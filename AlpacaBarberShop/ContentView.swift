@@ -8,6 +8,7 @@
 
 import SwiftUI
 
+@available(iOS 14.0, *)
 struct ContentView: View {
     @State
     var state: AlpacaState = .notStarted
@@ -28,17 +29,20 @@ struct ContentView: View {
         }
     }
     
+
     var body: some View {
         GeometryReader { geo in
             ZStack {
-                Color.white
+                Color("Mint")
+                    .ignoresSafeArea()
                 VStack(alignment: .center) {
+                    Spacer ()
                     StrokeText(text: "\(self.uiState.topText)", width: 1, color: Color.pink)
-                        .foregroundColor(Color.white)
+                        .foregroundColor(Color("Peach"))
                         .multilineTextAlignment(.center)
                         .font(.largeTitle)
                         .fixedSize(horizontal: false, vertical: true)
-                    
+                    Spacer ()
                     Image("\(self.uiState.imageName)")
                         .resizable()
                         .frame(width: geo.size.width / 2, height: geo.size.height / 2)
@@ -46,7 +50,7 @@ struct ContentView: View {
                         .overlay(RoundedRectangle(cornerRadius: 30) .stroke(Color.white, lineWidth: 5))
                         .shadow(radius: 10)
                     
-                    
+                    Spacer ()
                     Button(action: {print("Hey Listen!")}) {
                         Text("\(self.uiState.buttonText)")
                             .font(.largeTitle)
@@ -62,6 +66,7 @@ struct ContentView: View {
                                 print("Tapped! - \(self.state)")
                         }
                     }
+                    Spacer ()
                 }
                 
             }
@@ -98,6 +103,7 @@ enum AlpacaState {
 }
 
 
+@available(iOS 14.0, *)
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
